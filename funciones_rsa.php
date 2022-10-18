@@ -46,17 +46,12 @@ if(isset($_POST['registrar'])){
 }
 
 if(isset($_POST['cifrar'])){
-    if(strlen($_POST['clave']) >= 1 ){ // && strlen($_POST['_key']) >= 1 
-        // $keyprivada = trim($_POST['_key']);
+    if(strlen($_POST['clave']) >= 1){ 
         $datos_cifrados =trim($_POST['clave']); 
-        //echo"Key privada: ".$keyprivada."<br><br>";// ---->
-        //echo "Datos cifrados: ".$datos_cifrados."<br><br>";// ---->
-        $consulta = "SELECT contra2 FROM tbl_rsa WHERE contra = '$datos_cifrados'";
-        $resultado = mysqli_query($conn,$consulta);
-        $row = mysqli_fetch_row($resultado);
-        // echo "$row[0]";
-        echo "<center style='margin-top: 15%;'><h1 style='justif: center;color: #1a2537;font-size: 40px;'>La contraseña es: ".$row[0]."</h1>";
-        echo"<a href='cifrado_rsa.php' style='text-align: center;color: #1a2537;font-size: 40px;'> Regresar</a></center>";   
+        $dato2=base64_decode($datos_cifrados);
+        openssl_private_decrypt($dato2,$datos_decifrados); // Metodo para decifrar los datos
+        echo "<center style='margin-top: 15%;'><h1 style='justif: center;color: #1a2537;font-size: 40px;'>La contraseña es: ".$datos_decifrados."</h1>";
+        echo"<a href='cifrado_aes.php' style='text-align: center;color: #1a2537;font-size: 40px;'> Regresar</a></center>";    
     }
-}        
+}      
 ?>
