@@ -25,7 +25,7 @@ if(isset($_POST['registrar'])){
         $dato=base64_encode($datos_cifrados);
         $dato2=base64_decode($dato);
 
-        openssl_private_decrypt($dato2,$datos_decifrados,$keyprivada); // Metodo para decifrar los datos
+        openssl_private_decrypt($dato2,$datos_decifrados); // Metodo para decifrar los datos
         
         // echo"Key privada: ".$keyprivada."<br><br>";
         // echo"Key publica: ".$keypublica."<br><br>"; 
