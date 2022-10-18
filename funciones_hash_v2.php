@@ -27,20 +27,6 @@
         }        
     }
 
-    if(isset($_POST['cifrar'])){
-        if(strlen($_POST['clave']) >= 1 ){
-            $clave=trim($_POST['clave']);
-
-            $consulta = "SELECT contra2 FROM tbl_hash_v2 WHERE contra = '$clave'";
-            $resultado = mysqli_query($conn,$consulta);
-            $row = mysqli_fetch_row($resultado);
-            // echo "$row[0]";
-            echo "<center style='margin-top: 15%;'><h1 style='justif: center;color: #1a2537;font-size: 40px;'>La contraseña es: ".$row[0]."</h1>";
-            echo"<a href='cifrado_hash_v2.php' style='text-align: center;color: #1a2537;font-size: 40px;'> Regresar</a></center>";   
-        }      
-    }
-
-
     if(isset($_POST['verificar'])){
         if(strlen($_POST['clave']) >= 1 && strlen($_POST['clave_no']) >= 1){
             $clave=trim($_POST['clave']);
