@@ -52,17 +52,6 @@
 			</div>
 		</form>
 		<br><br>
-		<!-- <form action="funciones_hash_v1.php" class="formulario" method="post">
-			<h1>[2] Decifrar</h1>
-			<div class="contenedor">
-				<div class="input-contenedor">
-					<i class="fas fa-key icon"></i>
-					<input type="text" placeholder="Contraseña cifrada" name="clave">
-				</div>	
-				<input type="submit" value="Decifrar" class="button" name="cifrar"><br><br>
-			</div>
-		</form>
-		<br><br> -->
 		<form action="funciones_hash_v1.php" class="formulario" method="post">
 			<h1>Verificar</h1>
 			<div class="contenedor">
