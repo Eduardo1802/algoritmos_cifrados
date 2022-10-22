@@ -47,24 +47,6 @@
 					<input type="password" placeholder="Contraseña" name="clave">
 				</div>	
 				<input type="submit" value="Registrar (Encriptar)" class="button" name="registro"><br><br>
-
-				<!-- <center><a class="link" href="aviso_privacidad.html">Aviso de privacidad</a></center> -->
-			</div>
-		</form>
-		<form action="funciones_hash_v1.php" class="formulario" method="post">
-			<h1>Verificar</h1>
-			<div class="contenedor">
-				<i class="fas icon">Contraseña no cifrada:</i>
-				<div class="input-contenedor">
-					<i class="fas fa-key icon"></i>
-					<input type="text" placeholder="Ingresa la contraseña no cifrada" name="clave_no">
-				</div>	
-				<i class="fas icon">Contraseña cifrada:</i>
-				<div class="input-contenedor">
-					<i class="fas fa-key icon"></i>
-					<input type="text" placeholder="Ingresa la contraseña cifrada" name="clave">
-				</div>	
-				<input type="submit" value="Verificar" class="button" name="verificar"><br><br>
 			</div>
 		</form>
 		<h1>[3] Consultar Datos</h1><center>
@@ -78,14 +60,12 @@
 						<th>Edad</th>
 						<th>email</th>
 						<th>contraseña cifrada</th>
-						<!-- <th>contraseña decifrada</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					include("conexion.php");
-					// $consulta = "SELECT id,correo,contra,contra2 FROM tbl_rsa";
-					$consulta = "SELECT id,nombre,apellido,edad,correo,contra FROM tbl_hash_v1";
+					$consulta = "SELECT * FROM tbl_hash_v1";
             		$resultado = mysqli_query($conn,$consulta);
 					while($mostrar=mysqli_fetch_array($resultado)){
 					?>
@@ -96,13 +76,11 @@
 						<td><?php echo $mostrar['edad']?></td>
 						<td><?php echo $mostrar['correo']?></td>
 						<td><?php echo $mostrar['contra']?></td>
-						<!-- <td><?php echo $mostrar['contra2']?></td> -->
 					</tr>
 					<?php } ?>
 				</tbody>
 			</table>
 		</div></center><br><br><br>
-		
 		<footer>
 			<div class="container-body-all">
 				<center>

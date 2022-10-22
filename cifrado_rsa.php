@@ -48,18 +48,12 @@
 					<input type="password" placeholder="Contraseña" name="clave">
 				</div>	
 				<input type="submit" value="Registrar (Encriptar)" class="button" name="registrar"><br><br>
-
-				<!-- <center><a class="link" href="aviso_privacidad.html">Aviso de privacidad</a></center> -->
 			</div>
 		</form>
 		<br><br>
 		<form action="funciones_rsa.php" class="formulario" method="post">
 			<h1>[2] Decifrar</h1>
 			<div class="contenedor">
-				<!-- <div class="input-contenedor">
-					<i class="fas fa-key icon"></i>
-					<input type="text" placeholder="Llave Secreta" name="_key">
-				</div> -->
 				<i class="fas icon">Contraseña cifrada:</i>
 				<div class="input-contenedor">
 					<i class="fas fa-key icon"></i>
@@ -68,7 +62,6 @@
 				<input type="submit" value="Decifrar" class="button" name="cifrar"><br><br>
 			</div>
 		</form>
-
 		<h1>[3] Consultar Datos</h1>
 		<div Style="max-width:1700px;">
 			<table class="table_planes" style="width: 100%;">
@@ -78,18 +71,16 @@
 						<th>Nombre</th>
 						<th>Apellido</th>
 						<th>Edad</th>
-						<th>Llave secreta</th>
-						<th>Llave publica</th>
 						<th>email</th>
 						<th>contraseña cifrada</th>
-						<!-- <th>contraseña decifrada</th> -->
+						<th>Llave secreta</th>
+						<th>Llave publica</th>
 					</tr>
 				</thead>
 				<tbody >
 					<?php
 					include("conexion.php");
-					$consulta = "SELECT id,nombre,apellido,edad,_key,_public,correo,contra FROM tbl_rsa";
-					// $consulta = "SELECT * FROM tbl_rsa";
+					$consulta = "SELECT * FROM tbl_rsa";
             		$resultado = mysqli_query($conn,$consulta);
 					while($mostrar=mysqli_fetch_array($resultado)){
 					?>
@@ -98,12 +89,10 @@
 						<td data-label="Nombre"><?php echo $mostrar['nombre']?></td>
 						<td data-label="Apellido"><?php echo $mostrar['apellido']?></td>
 						<td data-label="Edad"><?php echo $mostrar['edad']?></td>
-						<td data-label="Llave secreta"><?php echo $mostrar['_key']?></td>
-						<td data-label="llave publica"><?php echo $mostrar['_public']?></td>
 						<td data-label="email"><?php echo $mostrar['correo']?></td>
 						<td data-label="contraseña"><?php echo $mostrar['contra']?></td>
-						<!-- <td><?php echo $mostrar['contra2']?></td> -->
-
+						<td data-label="Llave secreta"><?php echo $mostrar['_key']?></td>
+						<td data-label="llave publica"><?php echo $mostrar['_public']?></td>
 					</tr>
 					<?php } ?>
 				</tbody>

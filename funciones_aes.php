@@ -19,12 +19,10 @@
             $edad=trim($_POST['edad']);
             $key=trim($_POST['key']);
             $email =trim($_POST['email']);
-            $clave=trim($_POST['clave']);
-            
+            $clave=trim($_POST['clave']);           
             $encriptado = encrypt($clave,$key);
-            $desencriptado = decrypt($encriptado,$key);
 
-            $consulta = "INSERT INTO tbl_aes(nombre,apellido,edad,_key,correo,contra,contra2) VALUES ('$nombre','$apellido','$edad','$key','$email','$encriptado','$desencriptado');";
+            $consulta = "INSERT INTO tbl_aes(nombre,apellido,edad,_key,correo,contra) VALUES ('$nombre','$apellido','$edad','$key','$email','$encriptado');";
             $resultado = mysqli_query($conn,$consulta);
             if($resultado){
                 $url = "https://uthh.online/algoritmos/cifrado_aes.php";

@@ -8,8 +8,9 @@
 		<link rel="icon" type="image/png" href="icono.png">
 	</head>
 	<body><center>
-		<ul class="menu" style="max-width: 67%;">
-			<li><a href="aviso_privacidad.html">Portada</a></li>
+		<ul class="menu" style="max-width: 79%;">
+			<li><a href="portada.html">Portada</a></li>
+			<li><a href="aviso_privacidad.html">Aviso de privacidad</a></li>
 			<li><a href="cifrado_aes.php">Cifrado simétrico AES</a></li>
 			<li><a href="cifrado_rsa.php">Cifrado Asimétrico RSA</a></li>
 			<li><a href="cifrado_hash_v1.php">Cifrado Hash - V1</a></li>
@@ -18,7 +19,6 @@
 		</ul></center>
 		<br><center><h1 Style="font-family: Helvetica;">Cifrado Hash - V2</h1></center>
 		<form class="formulario" method="post" action="funciones_hash_v2.php">
-			<!-- <h1>[1] Encriptar - SHA256</h1> -->
 			<h1>[1] Encriptar - SHA1</h1>
 			<div class="contenedor">
 			<i class="fas icon">Nombre:</i>
@@ -47,25 +47,6 @@
 					<input type="password" placeholder="Contraseña" name="clave">
 				</div>	
 				<input type="submit" value="Registrar (Encriptar)" class="button" name="registrar"><br><br>
-
-				<!-- <center><a class="link" href="aviso_privacidad.html">Aviso de privacidad</a></center> -->
-			</div>
-		</form>
-		<br><br>
-		<form action="funciones_hash_v2.php" class="formulario" method="post">
-			<h1>Verificar</h1>
-			<div class="contenedor">
-				<i class="fas icon">Contraseña no cifrada:</i>
-				<div class="input-contenedor">
-					<i class="fas fa-key icon"></i>
-					<input type="password" placeholder="Ingresa la contraseña no cifrada" name="clave_no">
-				</div>	
-				<i class="fas icon">Contraseña cifrada:</i>
-				<div class="input-contenedor">
-					<i class="fas fa-key icon"></i>
-					<input type="text" placeholder="Ingresa la contraseña cifrada" name="clave">
-				</div>	
-				<input type="submit" value="Verificar" class="button" name="verificar"><br><br>
 			</div>
 		</form>
 		<h1>[3] Consultar Datos</h1><center>
@@ -79,14 +60,12 @@
 						<th>Edad</th>
 						<th>email</th>
 						<th>contraseña cifrada</th>
-						<!-- <th>contraseña decifrada</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					include("conexion.php");
-					// $consulta = "SELECT id,correo,contra,contra2 FROM tbl_rsa";
-					$consulta = "SELECT id,nombre,apellido,edad,correo,contra FROM tbl_hash_v2";
+					$consulta = "SELECT * FROM tbl_hash_v2";
             		$resultado = mysqli_query($conn,$consulta);
 					while($mostrar=mysqli_fetch_array($resultado)){
 					?>
@@ -97,7 +76,6 @@
 						<td><?php echo $mostrar['edad']?></td>
 						<td><?php echo $mostrar['correo']?></td>
 						<td><?php echo $mostrar['contra']?></td>
-						<!-- <td><?php echo $mostrar['contra2']?></td> -->
 					</tr>
 					<?php } ?>
 				</tbody>

@@ -52,7 +52,6 @@
 					<input type="password" placeholder="Contraseña" name="clave">
 				</div>	
 				<input type="submit" value="Registrar (Encriptar)" class="button" name="registro"><br><br>
-				<!-- <center><a class="link" href="aviso_privacidad.html">Aviso de privacidad</a></center> -->
 			</div>
 		</form>
 		<br><br>
@@ -84,14 +83,12 @@
 						<th>Llave secreta</th>
 						<th>email</th>
 						<th>contraseña cifrada</th>
-						<!-- <th>contraseña decifrada</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					include("conexion.php");
-					// $consulta = "SELECT id,correo,contra,contra2 FROM tbl_rsa";
-					$consulta = "SELECT id,nombre,apellido,edad,_key,correo,contra FROM tbl_aes";
+					$consulta = "SELECT * FROM tbl_aes";
             		$resultado = mysqli_query($conn,$consulta);
 					while($mostrar=mysqli_fetch_array($resultado)){
 					?>
@@ -103,8 +100,6 @@
 						<td><?php echo $mostrar['_key']?></td>
 						<td><?php echo $mostrar['correo']?></td>
 						<td><?php echo $mostrar['contra']?></td>
-						<!-- <td><?php echo $mostrar['contra2']?></td> -->
-
 					</tr>
 					<?php } ?>
 				</tbody>
